@@ -74,3 +74,11 @@ Finally, be sure to test your code:
 ```bash
 curl http://lyrics.samplel.devel/verbs/Muse/Uprising
 ```
+
+## TODO
+
+* Better logging
+* Better error handling
+* Smarter health checking
+* Deployable to cloud-based K8s
+* Smarter word recognition
