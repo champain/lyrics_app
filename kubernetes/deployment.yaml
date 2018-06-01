@@ -18,6 +18,9 @@ spec:
       containers:
         - name: lyrics
           image: champain/lyrics_app:latest
+          env:
+            - name: LYRICS_API_URL
+              value: 'https://api.lyrics.ovh/v1'
           ports:
             - containerPort: 8080
           livenessProbe:
