@@ -1,0 +1,32 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: lyrics-deployment
+  labels:
+    app: lyrics
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: lyrics
+  template:
+    metadata:
+      labels:
+        app: lyrics
+    spec:
+      containers:
+        - name: lyrics
+          image: champain/lyrics_app:latest
+          ports:
+            - containerPort: 8080
+          livenessProbe:
+            httpGet:
+              path: /healthz
+              port: 8080
+            initialDelaySeconds: 3
+            periodSeconds: 3
+      initContainers:
+        - name: lyrics-init
+          image: byrnedo/alpine-curl
+          command: ['/usr/bin/curl', 'https://api.lyrics.ovh/v1/Muse/Uprising']

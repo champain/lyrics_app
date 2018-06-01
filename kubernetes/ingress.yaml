@@ -1,0 +1,14 @@
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: lyrics-ingress
+spec:
+  rules:
+  - host: lyrics.sample.devel
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: lyrics-service
+          servicePort: 8080
