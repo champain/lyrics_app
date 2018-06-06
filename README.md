@@ -14,7 +14,7 @@ When developing the app directly, it's easy to just run the docker container:
 
 ```bash
 docker build . -t lyrics-app
-docker run -p 8080:8080 lyrics_app
+docker run -p 8080:8080 lyrics-app
 ```
 
 Then, just use `curl`!
